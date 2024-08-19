@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body{
+            background-image: url("bg34.webp");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+           
+        }
+        .error-message {
+            display: none;
+            color: #e53e3e; 
+            font-size: 0.875em;
+        }
+        .container {
+            background-color: beige; 
+            opacity:0.8;
+            border: 2px solid #e2e8f0; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .textarea-custom {
+            width: 50%;
+        }
+        .form-group {
+            position: relative;
+        }
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            border-color: #4f46e5; 
+            outline: none;
+            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.24);
+        }
+        input.invalid {
+            border: 4px solid red;
+        }
+        
+        input.valid {
+            border: 4px solid green;
+        }
+        .error {
+            color: red;
+            display: none;
+        }
+        label{
+            width:130px;
+        }
+        input{
+            width:400px;
+        }
+        .error-message{
+            color:red;
+        }
+        button#resetBtn {
+            background-color: #6c757d; 
+            border: none;
+        }
+        
+        button#resetBtn:hover {
+            background-color: #5a6268; 
+        }
+
+    </style>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="container mx-auto p-8 rounded-lg max-w-4xl">
+        <h2 class="text-4xl font-semibold text-red-600 text-center mb-8">Registration Form</h2>
+        <form id="registrationForm" class="space-y-6">
+            <div class="form-group mb-8">
+                <label for="firstname" class="block text-lg text-gray-700 mb-2">First Name</label>
+                <i class="fa-li fa fa-check-square"></i>
+                <input type="text" id="firstname" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" placeholder="Enter First Name" autofocus>
+                <span class="error-message mt-1" id="firstnameError">Please enter First Name</span>
+            </div><br><br>
+
+            <div class="form-group mb-8">
+                <label for="lastname" class="block text-lg text-gray-700 mb-2">Last Name</label>
+                <i class="fa-li fa fa-check-square"></i>
+                <input type="text" id="lastname" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" placeholder="Enter Last Name">
+                <span class="error-message mt-1" id="lastnameError">Please enter Last Name</span>
+            </div><br><br>
+
+            <div class="form-group mb-8">
+                <label for="age" class="block text-lg text-gray-700 mb-2">Age</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <i class="fa-li fa fa-check-square"></i>
+                <input type="text" id="age" class="w-full p-4 border border-gray-300 rounded-lg bg-gray-200 cursor-not-allowed" placeholder="Enter Age" readonly>
+            </div><br><br>
+
+            <div class="form-group mb-8">
+                <label for="dob" class="block text-lg text-gray-700 mb-2">Date of Birth</label>&nbsp;&nbsp;
+                <input type="date" id="dob" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                <span class="error-message mt-1" id="dobError">Enter a valid date in YYYY-MM-DD format</span>
+            </div><br><br>
+
+            <div class="form-group mb-8">
+                <label for="email" class="block text-lg text-gray-700 mb-2">Email</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="email" id="email" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" placeholder="Enter Email">
+                <i class="fa-li fa fa-check-square"></i>
+                <span class="error-message mt-1" id="emailError">Please enter a valid email address.</span>
+            </div><br><br>
+
+            <div class="form-group mb-8">
+                <label for="password" class="block text-lg text-gray-700 mb-2">Password</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="password" id="password" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" placeholder="Enter Password">
+                <i class="fa fa-spinner"></i>
+                <span class="error-message mt-1" id="passwordError">Password is required and must be at least 8 characters long.</span>
+            </div><br><br>
+
+            <div class="form-group mb-8">
+                <label for="confirmPassword" class="block text-lg text-gray-700 mb-2">Confirm Password</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="password" id="confirmPassword" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" placeholder="Confirm Password">
+                <i class="fa fa-spinner"></i>
+                <span class="error-message mt-1" id="confirmPasswordError">Passwords must match.</span>
+            </div><br><br>
+
+            <div class="form-group mb-8">
+                <label for="details" class="block text-lg text-gray-700 mb-2">Other Details</label><br><br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <textarea id="details" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 textarea-custom" placeholder="Text Here"></textarea>
+            </div><br><br>
+
+            <button type="submit" id="submitBtn" class="btn btn-dark bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300">Register</button>
+            <button type="reset" id="resetBtn" class="btn btn-dark bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300">Reset</button>
+
+        </form>
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Form is Submitted, Thank you!</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="successMessage" class="hidden text-green-500 text-center mt-4">Refresh</div>
+    <script src="lab6html2.js"></script>
+</body>
+</html>
